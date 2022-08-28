@@ -25,6 +25,7 @@ Prevent:
 - IDOR
 
 # API endpoint
+| API |
 | ----------- |
 | api/article |
 | api/article/(request_by_id) |
