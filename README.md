@@ -13,7 +13,7 @@ This source code is a small scale project in the case of the CRUD post article.
 - All Posts Tabs: Published, Drafts and Trashed.
 - Each tab has a table containing title, category & action. This action contains an edit icon and a trash icon.
 
-# Themes and Library Support
+# Theme and Library Support
 - CORE UI
 - Rest Server by https://github.com/chriskacerguis/codeigniter-restserver
 
