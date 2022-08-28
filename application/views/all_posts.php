@@ -2,6 +2,17 @@
     <div class="card-header"> <?= $title; ?></div>
     <div class="card-body">
         <div class="row">
+            <div class="col-12">
+                <?php
+                    if($this->session->flashdata('success')){
+                        echo $this->session->flashdata('success');
+                    }else if($this->session->flashdata('error')){
+                        echo $this->session->flashdata('error');
+                    }
+                ?>
+            </div>
+        </div>
+        <div class="row">
             <div class="tab-content rounded-bottom">
                 <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1077">
                 <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
@@ -69,16 +80,18 @@
 <div class="modal fade" id="idModalEditPublish" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="statiidModalEditPublish" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="idModalEditPublishLabel">Edit</h5>
-                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-                <input type="hidden" id="idEditModal" name="nameEditModal">
-            </div>
-            <div class="modal-body" id="dataEditPublish"></div>
-            <div class="modal-footer">
-                <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
-                <button class="btn btn-outline-info" type="button">Update</button>
-            </div>
+            <?php echo form_open('all_posts/action_publish/edit'); ?>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="idModalEditPublishLabel">Edit</h5>
+                    <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+                    <input type="hidden" id="valEditPublish">
+                </div>
+                <div class="modal-body" id="dataEditPublish"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>
@@ -108,35 +121,38 @@
 <div class="modal fade" id="idModalEditDraft" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="statiidModalEditDraft" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="idModalEditDraftLabel">Edit</h5>
-                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-                <input type="hidden" id="idEditModal" name="nameEditModal">
-            </div>
-            <div class="modal-body" id="dataEditDraft"></div>
-            <div class="modal-footer">
-                <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
-                <button class="btn btn-outline-info" type="button">Update</button>
-            </div>
+            <?php echo form_open('all_posts/action_publish/edit'); ?>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="idModalEditDraftLabel">Edit</h5>
+                    <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+                    <input type="hidden" id="valEditPublish">
+                </div>
+                <div class="modal-body" id="dataEditDraft"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="idModalDeleteDraft" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="idModalDeleteDraft" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="idModalDeleteDraftLabel">Delete</h5>
-                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-                <input type="hidden" id="valDelDraft" name="nameDeleteDraft">
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this data?
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
-                <button class="btn btn-outline-info" type="button">Yas!</button>
-            </div>
+            <?php echo form_open('all_posts/action_draft/delete'); ?>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="idModalDeleteDraftLabel">Delete</h5>
+                    <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+                    <input type="hidden" id="valDelDraft" name="nameDeleteDraft">
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this data?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
+                    <button class="btn btn-outline-info" type="submit">Yas!</button>
+                </div>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>
@@ -153,7 +169,7 @@
             <div class="modal-body" id="dataEditThrash"></div>
             <div class="modal-footer">
                 <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
-                <button class="btn btn-outline-info" type="button">Update</button>
+                <button class="btn btn-outline-info" type="submit">Update</button>
             </div>
         </div>
     </div>
@@ -173,7 +189,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-danger" type="button" data-coreui-dismiss="modal">Close</button>
-                    <button class="btn btn-outline-info" type="button">Yas!</button>
+                    <button class="btn btn-outline-info" type="submit">Yas!</button>
                 </div>
             <?php echo form_close(); ?>
         </div>

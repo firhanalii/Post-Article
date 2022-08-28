@@ -56,4 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['api/article'] = 'api/ArticleController/index';
 $route['api/article'] = 'api/ArticleController/storeArticle';
 $route['api/article/(:any)'] = 'api/ArticleController/getIDArticle/$1';
-$route['api/article/(:any)'] = 'api/ArticleController/updateIDArticle/$1';
+$route['api/article/update/(:any)'] = 'api/ArticleController/updateIDArticle/$1';
+$route['api/article/delete/(:any)'] = 'api/ArticleController/deleteIDArticle/$1';

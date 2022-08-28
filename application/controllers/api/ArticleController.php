@@ -60,4 +60,22 @@ class ArticleController extends RestController {
             ], RestController::HTTP_BAD_REQUEST);
         }
 	}
+
+    public function deleteIDArticle_delete($id) {
+        $where = [
+            'id' => $id,
+        ];
+        $delete = $this->article->delID_article("posts", $where);
+        if ($delete) {
+            $this->response([
+                'status' => true,
+                'message' => 'Success'
+            ], RestController::HTTP_OK);
+        } else {
+            $this->response([
+                'status' => true,
+                'message' => 'Failed'
+            ], RestController::HTTP_BAD_REQUEST);
+        }
+	}
 }

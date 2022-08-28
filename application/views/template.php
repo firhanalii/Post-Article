@@ -206,17 +206,17 @@
 
       // Modal Publish
       function modEdPub(x){
-        document.getElementById("idEditModal").value = x;
+        document.getElementById("valEditPublish").value = x;
         var val1 = x;
 
         $.ajax({
-            type: 'POST',
-            url: '<?php echo site_url('all_posts/viewModal/publish')?>',
-            data: { idEditModal: val1 },
-            success: function(response) {
-                $("#dataEditPublish").html(response);
-                $("#idModalEditPublish").modal("show");
-            }
+          type: 'POST',
+          url: '<?php echo site_url('all_posts/action_publish/view')?>',
+          data: { valEditPublish: val1 },
+          success: function(response) {
+            $("#dataEditPublish").html(response);
+            $("#idModalEditPublish").modal("show");
+          }
         });
       }
 
@@ -227,13 +227,13 @@
 
       // Modal Draft
       function modEdDra(x){
-        document.getElementById("idEditModal").value = x;
+        document.getElementById("valEditPublish").value = x;
         var val1 = x;
 
         $.ajax({
           type: 'POST',
-          url: '<?php echo site_url('all_posts/viewModal/Draft')?>',
-          data: { idEditModal: val1 },
+          url: '<?php echo site_url('all_posts/action_publish/view')?>',
+          data: { valEditPublish: val1 },
           success: function(response) {
             $("#dataEditDraft").html(response);
             $("#idModalEditDraft").modal("show");
@@ -247,21 +247,6 @@
       }
 
       // Modal Thrash
-      function modEdThr(x){
-        document.getElementById("idEditModal").value = x;
-        var val1 = x;
-
-        $.ajax({
-          type: 'POST',
-          url: '<?php echo site_url('all_posts/viewModal/Thrash')?>',
-          data: { idEditModal: val1 },
-          success: function(response) {
-            $("#dataEditThrash").html(response);
-            $("#idModalEditThrash").modal("show");
-          }
-        });
-      }
-
       function modDelThr(x){
         document.getElementById("valDelThrash").value = x;
         $("#idModalDeleteThrash").modal("show");
